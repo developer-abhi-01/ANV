@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>ANV — Discover Your Inspiration</title>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.css">
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <a href="">
+            <div class="logo">
+                AN<span>V</span>
+            </div>
+        </a>
+
+        <div class="search">
+            <span><i class="ri-search-line"></i></span>
+            <br>
+            <input type="text" id="searchInput" placeholder="Search inspiration...">
+        </div>
+
+        <div class="profile-area">
+
+            <button class="login-btn" id="loginBtn">
+                Login
+            </button>
+
+            <div class="profile" id="profile"></div>
+            <button id="theme" class="theme">Dark</button>
+        </div>
+
+    </header>
+
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <h1>
+            Find things that <span>spark you.</span>
+        </h1>
+
+        <p>
+            Explore ideas, aesthetics, design, travel and creativity
+            from people building beautiful things around the world.
+        </p>
+
+    </section>
+
+
+    <!-- FEED -->
+    <main class="feed" id="feed"></main>
+
+
+    <!-- LOAD MORE -->
+    <button class="load" id="loadMore">
+        Load more inspiration →
+    </button>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <strong>ANV © 2026</strong>
+
+        <a class="lnk" href="https://dev-abhi-01.vercel.app/" target="_blank">
+            <strong>Created by Abhimanew</strong>
+        </a>
+
+        <span>
+            Discover · Create · Inspire
+        </span>
+
+    </footer>
+
+
+    <!-- AUTH MODAL -->
+    <div class="auth-overlay" id="authOverlay">
+
+        <div class="auth-box">
+
+            <button class="close-auth" id="closeAuth">
+                <i class="ri-close-line"></i>
+            </button>
+
+
+            <!-- LOGIN -->
+            <div id="loginForm">
+
+                <div class="auth-logo">
+                    AN<span>V</span>
+                </div>
+
+                <h2>Welcome back 👋</h2>
+
+                <p class="auth-subtitle">
+                    Login to continue exploring.
+                </p>
+
+                <form id="loginFormElement">
+
+                    <div class="input-box">
+
+                        <i class="ri-mail-line"></i>
+
+                        <input type="email" id="loginEmail" placeholder="Email address" required>
+
+                    </div>
+
+
+                    <div class="input-box">
+
+                        <i class="ri-lock-line"></i>
+
+                        <input type="password" id="loginPassword" placeholder="Password" required>
+
+                        <button type="button" class="password-toggle" data-target="loginPassword">
+                            <i class="ri-eye-line"></i>
+                        </button>
+
+                    </div>
+
+
+                    <p class="error" id="loginError"></p>
+
+                    <button class="auth-submit" type="submit">
+                        Login
+                    </button>
+
+                </form>
+
+
+                <p class="switch-auth">
+                    Don't have an account?
+                    <button id="showSignup">Sign up</button>
+                </p>
+
+            </div>
+
+
+            <!-- SIGNUP -->
+            <div id="signupForm" class="hidden">
+
+                <div class="auth-logo">
+                    AN<span>V</span>
+                </div>
+
+                <h2>Create your account ✨</h2>
+
+                <p class="auth-subtitle">
+                    Join ANV and discover your inspiration.
+                </p>
+
+
+                <form id="signupFormElement">
+
+                    <div class="input-box">
+
+                        <i class="ri-user-line"></i>
+
+                        <input type="text" id="signupName" placeholder="Your name" required>
+
+                    </div>
+
+
+                    <div class="input-box">
+
+                        <i class="ri-mail-line"></i>
+
+                        <input type="email" id="signupEmail" placeholder="Email address" required>
+
+                    </div>
+
+
+                    <div class="input-box">
+
+                        <i class="ri-lock-line"></i>
+
+                        <input type="password" id="signupPassword" placeholder="Password" required>
+
+                        <button type="button" class="password-toggle" data-target="signupPassword">
+                            <i class="ri-eye-line"></i>
+                        </button>
+
+                    </div>
+
+
+                    <div class="input-box">
+
+                        <i class="ri-lock-password-line"></i>
+
+                        <input type="password" id="confirmPassword" placeholder="Confirm password" required>
+
+                        <button type="button" class="password-toggle" data-target="confirmPassword">
+                            <i class="ri-eye-line"></i>
+                        </button>
+
+                    </div>
+
+
+                    <p class="error" id="signupError"></p>
+
+                    <button class="auth-submit" type="submit">
+                        Create account
+                    </button>
+
+                </form>
+
+
+                <p class="switch-auth">
+                    Already have an account?
+                    <button id="showLogin">Login</button>
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- LOGOUT POPUP -->
+    <div class="logout-overlay" id="logoutOverlay">
+
+        <div class="logout-popup">
+
+            <div class="logout-icon">
+                <i class="ri-logout-box-r-line"></i>
+            </div>
+
+            <h2>Logout?</h2>
+
+            <p>
+                Are you sure you want to logout from ANV?
+            </p>
+
+            <div class="logout-actions">
+
+                <button id="cancelLogout" class="cancel-btn">
+                    Cancel
+                </button>
+
+                <button id="confirmLogout" class="logout-confirm">
+                    Logout
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <!-- IMAGE PREVIEW POPUP -->
+
+    <div class="image-popup" id="imagePopup">
+
+        <button class="image-popup-close" id="imagePopupClose">
+            <i class="ri-close-line"></i>
+        </button>
+
+        <img id="popupImage" src="" alt="Preview">
+
+    </div>
+
+
+
+
+    <script src="./index.js"></script>
+</body>
+
+</html>
